@@ -4,40 +4,49 @@ import {
   removeMail,
   selectEmails,
 } from '../../pages/EmailTable/emailTableSlice'
+import { StyledTable, TableCell, TableRow } from './styled'
 
 const Table = () => {
   const emails = useSelector(selectEmails)
   const dispatch = useDispatch()
 
-  const handleRemoveMail = ({ id }) => {
-    console.log('removed')
-    dispatch(removeMail(id))
-  }
+  const handleRemoveMail = ({ id }) => dispatch(removeMail(id))
 
   return (
-    <table>
+    <StyledTable>
       <thead>
-        <tr>
-          <th scope="row">Tytuł</th>
-          <th scope="row">Treść wiadomości</th>
-          <th scope="row">Data dodania</th>
-          <th scope="row"></th>
-        </tr>
+        <TableRow>
+          <TableCell as="th" scope="row">
+            Tytuł
+          </TableCell>
+          <TableCell as="th" scope="row">
+            Treść wiadomości
+          </TableCell>
+          <TableCell as="th" scope="row">
+            Data dodania
+          </TableCell>
+          <TableCell as="th" scope="row"></TableCell>
+        </TableRow>
       </thead>
       <tbody>
         {!!emails &&
           emails.map(({ id, title, text, date }) => (
-            <tr key={id}>
-              <td>{title}</td>
-              <td>{text}</td>
-              <td>{date}</td>
-              <td>
-                <Button label="x" remove handleClick={handleRemoveMail} />
-              </td>
-            </tr>
+            <TableRow key={id}>
+              <TableCell>{title}</TableCell>
+              <TableCell>{text}</TableCell>
+              <TableCell>{date}</TableCell>
+              <TableCell>
+                <Button
+                  label="x"
+                  remove
+                  handleClick={handleRemoveMail}
+                  width="48px"
+                />
+              </TableCell>
+            </TableRow>
           ))}
       </tbody>
-    </table>
+    </StyledTable>
   )
 }
 

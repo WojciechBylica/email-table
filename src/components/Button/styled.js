@@ -10,6 +10,8 @@ export const StyledButton = styled.button`
   justify-content: center;
   color: ${({ theme }) => theme.color.white};
   background-color: ${({ theme }) => theme.color.green};
+  height: 48px;
+  width: 96px;
 
   &:hover {
     filter: brightness(110%);
@@ -23,5 +25,11 @@ export const StyledButton = styled.button`
     remove &&
     css`
       background-color: ${({ theme }) => theme.color.red};
+    `}
+
+  ${({ width }) =>
+    width &&
+    css`
+      width: 48px;
     `}
 `

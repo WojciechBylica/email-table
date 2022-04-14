@@ -14,8 +14,7 @@ body {
     flex-direction: column;
     font-family: "Montserrat", sans-serif;
     margin: 0 auto;
-    max-width: 900px;
-    background: rgba(219, 216, 216, 0.733);
+    background: ${({ theme }) => theme.color.white};
     font-size: 15px;
 }
 `
