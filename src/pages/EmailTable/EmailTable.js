@@ -1,27 +1,22 @@
-import { Button, Table } from '../../components'
-import { useDispatch } from 'react-redux'
+import { Button, Form, Modal, Table } from '../../components'
 import { ButtonWrapper, TableWrapper } from './styled'
-import { addMail } from './emailTableSlice'
-import { nanoid } from '@reduxjs/toolkit'
+import { useState } from 'react'
 
 const EmailTable = () => {
-  const dispatch = useDispatch()
+  const [openModal, setOpenModal] = useState(false)
 
-  const handleAddMail = () => {
-    dispatch(
-      addMail({
-        title: 'testowy tytuł2',
-        id: nanoid(),
-        text: 'Scrócony text wiadomości lorem ipsum',
-        date: new Date().toISOString(),
-      })
-    )
-  }
+  const handleOpenModal = () => setOpenModal(true)
+  const handleCloseModal = () => setOpenModal(false)
 
   return (
     <TableWrapper>
+      {openModal && (
+        <Modal handleCloseModal={handleCloseModal}>
+          <Form handleCloseModal={handleCloseModal} />
+        </Modal>
+      )}
       <ButtonWrapper>
-        <Button handleClick={handleAddMail} />
+        <Button handleClick={handleOpenModal} />
       </ButtonWrapper>
       <Table />
     </TableWrapper>
