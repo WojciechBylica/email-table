@@ -19,4 +19,5 @@ export const TableCell = styled.td`
   display: flex;
   align-items: center;
   justify-content: center;
+  word-break: break-word;
 `
