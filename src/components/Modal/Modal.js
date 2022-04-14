@@ -1,5 +1,6 @@
 import Button from '../Button'
 import { ModalWrapper, Wrapper, ButtonWrapper } from './styled'
+import PropStyles from 'prop-types'
 
 const Modal = ({ children, handleCloseModal }) => {
   return (
@@ -20,3 +21,8 @@ const Modal = ({ children, handleCloseModal }) => {
 }
 
 export default Modal
+
+Modal.propStyles = {
+  children: PropStyles.node,
+  handleCloseModal: PropStyles.func.isRequired,
+}
