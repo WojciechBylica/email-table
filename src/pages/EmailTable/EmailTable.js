@@ -9,7 +9,7 @@ const EmailTable = () => {
   const handleCloseModal = () => setOpenModal(false)
 
   return (
-    <TableWrapper>
+    <>
       {openModal && (
         <Modal handleCloseModal={handleCloseModal}>
           <Form handleCloseModal={handleCloseModal} />
@@ -18,8 +18,10 @@ const EmailTable = () => {
       <ButtonWrapper>
         <Button handleClick={handleOpenModal} />
       </ButtonWrapper>
-      <Table />
-    </TableWrapper>
+      <TableWrapper>
+        <Table />
+      </TableWrapper>
+    </>
   )
 }
 
