@@ -1,10 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { initialData } from './initialData'
+import { getEmailsFromLocalStorage } from './emailsLocalStorage'
 
 const emailTableSlice = createSlice({
   name: 'emails',
   initialState: {
-    emails: initialData,
+    emails: getEmailsFromLocalStorage(),
     status: 'initial',
   },
   reducers: {

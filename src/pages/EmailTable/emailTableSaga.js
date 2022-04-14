@@ -6,14 +6,14 @@ import {
   takeEvery,
   select,
 } from 'redux-saga/effects'
+import { saveEmailsInLocalStorage } from './emailsLocalStorage'
 import { selectEmails } from './emailTableSlice'
 
 function* saveEmailsInLocalStorageHandler() {
   const emails = yield select(selectEmails)
-  yield call(saveEmailsInLocalStorageHandler, emails)
+  yield call(saveEmailsInLocalStorage, emails)
 }
 
 export function* emailsSaga() {
-  console.log('saga')
   yield takeEvery('*', saveEmailsInLocalStorageHandler)
 }
