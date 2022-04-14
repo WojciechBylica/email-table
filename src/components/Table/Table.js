@@ -11,8 +11,6 @@ const Table = () => {
   const emails = useSelector(selectEmails)
   const dispatch = useDispatch()
 
-  const handleRemoveMail = ({ id }) => dispatch(removeMail(id))
-
   return (
     <StyledTable>
       <thead>
@@ -40,7 +38,7 @@ const Table = () => {
                 <Button
                   label="x"
                   remove
-                  handleClick={handleRemoveMail}
+                  handleClick={() => dispatch(removeMail(id))}
                   width="48px"
                 />
               </TableCell>
