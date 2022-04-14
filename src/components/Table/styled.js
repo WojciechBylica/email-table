@@ -16,6 +16,7 @@ export const TableRow = styled.tr`
 export const TableCell = styled.td`
   border: ${({ theme }) => theme.border};
   padding: 20px;
-  text-align: center;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
