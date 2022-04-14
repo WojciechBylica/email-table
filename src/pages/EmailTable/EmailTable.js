@@ -1,9 +1,12 @@
 import { Button, Table } from '../../components'
+import { ButtonWrapper } from './styled'
 
 const EmailTable = () => {
   return (
     <>
-      <Button />
+      <ButtonWrapper>
+        <Button />
+      </ButtonWrapper>
       <Table />
     </>
   )
