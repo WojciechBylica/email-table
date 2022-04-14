@@ -1,11 +1,4 @@
-import {
-  throttle,
-  call,
-  put,
-  delay,
-  takeEvery,
-  select,
-} from 'redux-saga/effects'
+import { call, takeEvery, select } from 'redux-saga/effects'
 import { saveEmailsInLocalStorage } from './emailsLocalStorage'
 import { selectEmails } from './emailTableSlice'
 
