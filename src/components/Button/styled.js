@@ -12,6 +12,8 @@ export const StyledButton = styled.button`
   background-color: ${({ theme }) => theme.color.green};
   height: 48px;
   width: 96px;
+  cursor: pointer;
+  user-select: none;
 
   &:hover {
     filter: brightness(110%);
