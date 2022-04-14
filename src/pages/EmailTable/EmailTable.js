@@ -1,7 +1,12 @@
-import { Table } from '../../components'
+import { Button, Table } from '../../components'
 
 const EmailTable = () => {
-  return <Table />
+  return (
+    <>
+      <Button />
+      <Table />
+    </>
+  )
 }
 
 export default EmailTable
