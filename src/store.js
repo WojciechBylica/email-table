@@ -1,14 +1,17 @@
 import { configureStore } from '@reduxjs/toolkit'
 import createSagaMiddleware from 'redux-saga'
-import rootSaga from './rootSaga'
+import emailsReducer from './pages/EmailTable/emailTableSlice'
+import saga from './saga'
 
 const sagaMiddleware = createSagaMiddleware()
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    emails: emailsReducer,
+  },
   middleware: [sagaMiddleware],
 })
 
-sagaMiddleware.run(rootSaga)
+sagaMiddleware.run(saga)
 
 export default store

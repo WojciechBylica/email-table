@@ -1,14 +1,19 @@
 import Button from '../Button'
+import { useSelector, useDispatch } from 'react-redux'
+import {
+  removeMail,
+  selectEmails,
+} from '../../pages/EmailTable/emailTableSlice'
 
 const Table = () => {
-  const data = [
-    {
-      title: 'testowy tytuł',
-      id: 'testowy tytuł',
-      text: 'Scrócony text wiadomości lorem ipsum',
-      date: '2022-04-14T01:41:48.151Z',
-    },
-  ]
+  const emails = useSelector(selectEmails)
+  const dispatch = useDispatch()
+
+  const handleRemoveMail = ({ id }) => {
+    console.log('removed')
+    dispatch(removeMail(id))
+  }
+
   return (
     <table>
       <thead>
@@ -20,16 +25,17 @@ const Table = () => {
         </tr>
       </thead>
       <tbody>
-        {data.map((mail) => (
-          <tr>
-            <td>{mail.title}</td>
-            <td>{mail.text}</td>
-            <td>{mail.date}</td>
-            <td>
-              <Button label="x" remove />
-            </td>
-          </tr>
-        ))}
+        {!!emails &&
+          emails.map(({ id, title, text, date }) => (
+            <tr key={id}>
+              <td>{title}</td>
+              <td>{text}</td>
+              <td>{date}</td>
+              <td>
+                <Button label="x" remove handleClick={handleRemoveMail} />
+              </td>
+            </tr>
+          ))}
       </tbody>
     </table>
   )
