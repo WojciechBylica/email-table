@@ -7,6 +7,7 @@ export const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
   font-size: 16px;
+  min-width: 600px;
 `
 export const TableRow = styled.tr`
   display: grid;

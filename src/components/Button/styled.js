@@ -32,6 +32,6 @@ export const StyledButton = styled.button`
   ${({ width }) =>
     width &&
     css`
-      width: 48px;
+      width: ${({ width }) => width};
     `}
 `
