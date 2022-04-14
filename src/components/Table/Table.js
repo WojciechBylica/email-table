@@ -5,6 +5,7 @@ import {
   selectEmails,
 } from '../../pages/EmailTable/emailTableSlice'
 import { StyledTable, TableCell, TableRow } from './styled'
+import { formatDate } from '../../helpers'
 
 const Table = () => {
   const emails = useSelector(selectEmails)
@@ -34,7 +35,7 @@ const Table = () => {
             <TableRow key={id}>
               <TableCell>{title}</TableCell>
               <TableCell>{text}</TableCell>
-              <TableCell>{date}</TableCell>
+              <TableCell>{formatDate(date)}</TableCell>
               <TableCell>
                 <Button
                   label="x"
