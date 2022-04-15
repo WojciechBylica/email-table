@@ -1,12 +1,9 @@
 import { Button, Form, Modal, Table } from '../../components'
 import { ButtonWrapper, TableWrapper } from './styled'
-import { useState } from 'react'
+import { useModal } from '../../hooks'
 
 const EmailTable = () => {
-  const [openModal, setOpenModal] = useState(false)
-
-  const handleOpenModal = () => setOpenModal(true)
-  const handleCloseModal = () => setOpenModal(false)
+  const [openModal, handleOpenModal, handleCloseModal] = useModal()
 
   return (
     <>
