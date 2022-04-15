@@ -59,6 +59,7 @@ const Form = ({ handleCloseModal }) => {
         Wiadomość
         <StyledInput
           as="textarea"
+          rows="8"
           name="message"
           value={message}
           onChange={handleMessageChange}
