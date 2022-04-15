@@ -26,7 +26,7 @@ const Form = ({ handleCloseModal }) => {
   const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
-    event.preventDefault()
+    // event.preventDefault()
     dispatch(
       addMail({
         title: title,
@@ -41,15 +41,14 @@ const Form = ({ handleCloseModal }) => {
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledLabel>
-        Tytuł
+        Tytuł (3-25 znaków)
         <StyledInput
           name="title"
           value={title}
           onChange={handleTitleChange}
           onBlur={handleTitleBlur}
           type="text"
-          min="3"
-          max="25"
+          pattern=".{3,250}"
           required
           placeholder="tytuł"
           autoFocus
