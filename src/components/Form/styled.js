@@ -10,7 +10,7 @@ export const StyledLabel = styled.label`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  color: ${({ theme }) => theme.color.white};
+  color: ${({ theme }) => theme.color.black};
   padding: 8px;
 `
 
