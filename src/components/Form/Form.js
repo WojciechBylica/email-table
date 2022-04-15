@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { addMail } from '../../pages/EmailTable/emailTableSlice'
 import { nanoid } from '@reduxjs/toolkit'
-import { StyledForm, StyledLabel } from './styled'
+import { StyledForm, StyledInput, StyledLabel } from './styled'
 import Button from '../Button'
 import PropStyles from 'prop-types'
 
@@ -42,7 +42,7 @@ const Form = ({ handleCloseModal }) => {
     <StyledForm onSubmit={handleSubmit}>
       <StyledLabel>
         Tytuł
-        <input
+        <StyledInput
           name="title"
           value={title}
           onChange={handleTitleChange}
@@ -57,7 +57,8 @@ const Form = ({ handleCloseModal }) => {
       </StyledLabel>
       <StyledLabel>
         Wiadomość
-        <textarea
+        <StyledInput
+          as="textarea"
           name="message"
           value={message}
           onChange={handleMessageChange}

@@ -4,6 +4,8 @@ export const theme = {
     lightGrey: '#e4e2e2',
     green: '#0a960a',
     red: '#ff0000',
+    lightBlack: '#40434291',
+    almostBlack: '#000000b5',
     black: '#000000',
   },
   breakpoint: {

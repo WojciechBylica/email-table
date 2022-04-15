@@ -13,3 +13,8 @@ export const StyledLabel = styled.label`
   color: ${({ theme }) => theme.color.white};
   padding: 8px;
 `
+
+export const StyledInput = styled.input`
+  padding: 8px;
+  font-size: 16px;
+`
