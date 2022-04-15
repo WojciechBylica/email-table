@@ -3,26 +3,54 @@ import { useSelector, useDispatch } from 'react-redux'
 import {
   removeMail,
   selectEmails,
+  selectSortedByDate,
+  sortByDates,
+  sortByDatesReversed,
+  sortByTitles,
 } from '../../pages/EmailTable/emailTableSlice'
-import { StyledTable, TableCell, TableRow } from './styled'
+import {
+  SortButton,
+  StyledButtonSpan,
+  StyledTable,
+  TableCell,
+  TableRow,
+} from './styled'
 import { formatDate } from '../../helpers'
 
 const Table = () => {
   const emails = useSelector(selectEmails)
+  const sortedByDates = useSelector(selectSortedByDate)
   const dispatch = useDispatch()
+
+  const handleSortByDates = () => {
+    if (sortedByDates === 'initial' || sortedByDates === 'old-new') {
+      dispatch(sortByDates())
+    }
+    if (sortedByDates === 'new-old') {
+      dispatch(sortByDatesReversed())
+    }
+  }
 
   return (
     <StyledTable>
       <thead>
         <TableRow>
           <TableCell as="th" scope="row">
-            Tytuł
+            <SortButton onClick={() => dispatch(sortByTitles())}>
+              Tytuł▲
+            </SortButton>
           </TableCell>
           <TableCell as="th" scope="row">
             Treść wiadomości
           </TableCell>
           <TableCell as="th" scope="row">
-            Data dodania
+            <SortButton onClick={handleSortByDates}>
+              Data dodania
+              <StyledButtonSpan>
+                <span>▲</span>
+                <span>▼</span>
+              </StyledButtonSpan>
+            </SortButton>
           </TableCell>
           <TableCell as="th" scope="row"></TableCell>
         </TableRow>
