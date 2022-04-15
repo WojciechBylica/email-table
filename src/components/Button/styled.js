@@ -17,12 +17,7 @@ export const StyledButton = styled.button`
   box-shadow: 1px 1px 4px ${({ theme }) => theme.color.almostBlack};
   transition: transform 0.3s;
 
-  &:hover {
-    filter: brightness(110%);
-  }
-
   &:active {
-    filter: brightness(120%);
     box-shadow: none;
   }
 
