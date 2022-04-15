@@ -22,3 +22,25 @@ export const TableCell = styled.td`
   justify-content: center;
   word-break: break-word;
 `
+export const SortButton = styled.button`
+  border: none;
+  background: none;
+  font-weight: 700;
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    filter: brightness(110%);
+  }
+
+  &:active {
+    filter: brightness(120%);
+  }
+`
+export const StyledButtonSpan = styled.span`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
