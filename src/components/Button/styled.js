@@ -14,6 +14,8 @@ export const StyledButton = styled.button`
   width: 96px;
   cursor: pointer;
   user-select: none;
+  box-shadow: 1px 1px 4px ${({ theme }) => theme.color.almostBlack};
+  transition: transform 0.3s;
 
   &:hover {
     filter: brightness(110%);
@@ -21,6 +23,7 @@ export const StyledButton = styled.button`
 
   &:active {
     filter: brightness(120%);
+    box-shadow: none;
   }
 
   ${({ remove }) =>
