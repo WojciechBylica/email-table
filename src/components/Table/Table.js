@@ -14,7 +14,7 @@ import {
   TableCell,
   TableRow,
 } from './styled'
-import { formatDate } from '../../helpers'
+import { formatDate, cutText } from '../../helpers'
 import Modal from '../Modal'
 import { useModal } from '../../hooks'
 import DeleteEmail from '../DeleteEmail'
@@ -77,7 +77,7 @@ const Table = () => {
             emails.map(({ id, title, text, date }) => (
               <TableRow key={id}>
                 <TableCell>{title}</TableCell>
-                <TableCell>{text}</TableCell>
+                <TableCell>{cutText(text, 30)}</TableCell>
                 <TableCell>{formatDate(date)}</TableCell>
                 <TableCell>
                   <Button
