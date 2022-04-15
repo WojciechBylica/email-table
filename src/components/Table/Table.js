@@ -52,15 +52,15 @@ const Table = () => {
       <StyledTable>
         <thead>
           <TableRow>
-            <TableCell as="th" scope="row">
+            <TableCell as="th" noBreakWord scope="row">
               <SortButton onClick={() => dispatch(sortByTitles())}>
                 Tytuł▲
               </SortButton>
             </TableCell>
-            <TableCell as="th" scope="row">
+            <TableCell as="th" noBreakWord scope="row">
               Treść wiadomości
             </TableCell>
-            <TableCell as="th" scope="row">
+            <TableCell as="th" noBreakWord scope="row">
               <SortButton onClick={handleSortByDates}>
                 Data dodania
                 <StyledButtonSpan>
@@ -69,7 +69,7 @@ const Table = () => {
                 </StyledButtonSpan>
               </SortButton>
             </TableCell>
-            <TableCell as="th" scope="row"></TableCell>
+            <TableCell as="th" noBreakWord scope="row"></TableCell>
           </TableRow>
         </thead>
         <tbody>

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const StyledTable = styled.table`
   border: ${({ theme }) => theme.border};
@@ -11,16 +11,25 @@ export const StyledTable = styled.table`
 `
 export const TableRow = styled.tr`
   display: grid;
-  grid-template-columns: 1fr 3fr 1fr 90px;
+  grid-template-columns: 1fr 3fr 174px 90px;
 `
 
 export const TableCell = styled.td`
   border: ${({ theme }) => theme.border};
-  padding: 20px;
+  padding: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   word-break: break-word;
+
+  ${({ noBreakWord }) =>
+    noBreakWord &&
+    css`
+      word-break: inherit;
+    `}
+  &:first-child {
+    min-width: 90px;
+  }
 `
 export const SortButton = styled.button`
   border: none;
