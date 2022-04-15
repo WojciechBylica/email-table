@@ -14,8 +14,8 @@ export const ModalWrapper = styled.div`
 `
 
 export const Wrapper = styled.div`
-  border: 1px solid black;
-  background-color: ${({ theme }) => theme.color.almostBlack};
+  border: 1px solid ${({ theme }) => theme.color.grey};
+  background-color: ${({ theme }) => theme.color.white};
   padding: 24px;
 `
 
