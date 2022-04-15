@@ -17,6 +17,6 @@ export const StyledLabel = styled.label`
 export const StyledInput = styled.input`
   padding: 8px;
   font-size: 16px;
-  border: none;
+  border: ${({ theme }) => theme.border};
   min-width: 250px;
 `
