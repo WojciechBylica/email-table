@@ -22,10 +22,6 @@ I used:
 - emails are saved and loaded from local storage,
 - user can: add a new message, delete message, sort messages by name and date
 
-## recruitment description:
-https://github.com/WojciechBylica/email-table/zadanie-rekrutacyjne.pdf
-
-
 
 # Getting Started with Create React App
 
