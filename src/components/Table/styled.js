@@ -12,7 +12,7 @@ export const StyledTable = styled.table`
 `
 export const TableRow = styled.tr`
   display: grid;
-  grid-template-columns: 1fr 3fr 174px 90px;
+  grid-template-columns: 2fr 3fr 174px 90px;
 `
 
 export const TableCell = styled.td`
