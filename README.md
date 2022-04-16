@@ -5,6 +5,28 @@
 ## Demo
 https://wojciechbylica.github.io/email-table/
 
+## technology
+I decided don't use YUP, Formik, MUI for this recruitment task - it would be easier and faster to code, but I wanted to try it without those libraries.
+I used:
+- react with hooks
+- react-redux
+- redux-saga
+- styled components
+- styled normalize
+- prop-types
+
+
+## description.
+
+- App shows the list of emails,
+- emails are saved and loaded from local storage,
+- user can: add a new message, delete message, sort messages by name and date
+
+## recruitment description:
+https://github.com/WojciechBylica/email-table/zadanie-rekrutacyjne.pdf
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
