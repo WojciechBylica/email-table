@@ -1,13 +1,11 @@
 import DOMPurify from 'dompurify'
+import { StyledIframe } from './styled'
 
 const Iframe = ({ title, text }) => {
   return (
     <>
       <div>{title}</div>
-      <iframe
-        style={{ width: '80vw', height: '80vh' }}
-        srcDoc={DOMPurify.sanitize(text)}
-      />
+      <StyledIframe srcDoc={DOMPurify.sanitize(text)} />
     </>
   )
 }
