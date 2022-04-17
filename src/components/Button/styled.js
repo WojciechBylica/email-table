@@ -27,6 +27,12 @@ export const StyledButton = styled.button`
       background-color: ${({ theme }) => theme.color.red};
     `}
 
+  ${({ details }) =>
+    details &&
+    css`
+      background-color: ${({ theme }) => theme.color.grey};
+    `}
+
   ${({ width }) =>
     width &&
     css`

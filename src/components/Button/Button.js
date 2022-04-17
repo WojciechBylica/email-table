@@ -1,8 +1,13 @@
-import PropStyles from 'prop-types'
+import PropTypes from 'prop-types'
 import { StyledButton } from './styled'
 
-const Button = ({ label, remove, handleClick, width }) => (
-  <StyledButton remove={remove} width={width} onClick={handleClick}>
+const Button = ({ label, remove, details, handleClick, width }) => (
+  <StyledButton
+    remove={remove}
+    details={details}
+    width={width}
+    onClick={handleClick}
+  >
     {label}
   </StyledButton>
 )
@@ -14,8 +19,9 @@ Button.defaultProps = {
 }
 
 Button.propStyles = {
-  label: PropStyles.string,
-  remove: PropStyles.bool,
-  handleClick: PropStyles.func,
-  width: PropStyles.bool,
+  label: PropTypes.string,
+  remove: PropTypes.bool,
+  details: PropTypes.bool,
+  handleClick: PropTypes.func,
+  width: PropTypes.bool,
 }
