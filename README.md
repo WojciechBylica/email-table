@@ -21,7 +21,12 @@ I used:
 
 - App shows the list of emails,
 - emails are saved and loaded from local storage,
-- user can: add a new message, delete message, sort messages by name and date
+- user can: add a new email, edit email, read email, delete email, sort emails by name and date
+- In main view App presents email-texts shortened to 30 signs without html tags
+- after pressing a dedicated button user can read  the full lenght email rendered with html tags
+![Preview](readme-files/handle-text-and-html.gif)
+- App not allows to add, edit, or read js-scripts as a content of the emails.
+![Preview](readme-files/cant-add-script.gif)
 
 
 # Getting Started with Create React App
