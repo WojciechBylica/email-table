@@ -14,11 +14,12 @@ import {
   TableCell,
   TableRow,
 } from './styled'
-import { formatDate, cutText } from '../../helpers'
+import { formatDate, cutText, purifyTextFromHTML } from '../../helpers'
 import Modal from '../Modal'
-import { useModal } from '../../hooks'
+import { useIframe, useModal } from '../../hooks'
 import DeleteEmail from '../DeleteEmail'
 import { useState } from 'react'
+import Iframe from '../Iframe'
 
 const Table = () => {
   const emails = useSelector(selectEmails)
@@ -36,17 +37,24 @@ const Table = () => {
   }
 
   const [removeId, setRemoveId] = useState('')
-
   const handleRemoveEmail = (id) => {
     setRemoveId(id)
     handleOpenModal()
   }
+
+  const [showIframe, iframeContent, handleShowIframe, handleHideIframe] =
+    useIframe()
 
   return (
     <>
       {openModal && (
         <Modal handleCloseModal={handleCloseModal}>
           <DeleteEmail id={removeId} handleCloseModal={handleCloseModal} />
+        </Modal>
+      )}
+      {showIframe && (
+        <Modal handleCloseModal={handleHideIframe}>
+          <Iframe title={iframeContent.title} text={iframeContent.text} />
         </Modal>
       )}
       <StyledTable>
@@ -70,6 +78,7 @@ const Table = () => {
               </SortButton>
             </TableCell>
             <TableCell as="th" noBreakWord scope="row"></TableCell>
+            <TableCell as="th" noBreakWord scope="row"></TableCell>
           </TableRow>
         </thead>
         <tbody>
@@ -77,8 +86,16 @@ const Table = () => {
             emails.map(({ id, title, text, date }) => (
               <TableRow key={id}>
                 <TableCell>{title}</TableCell>
-                <TableCell>{cutText(text, 30)}</TableCell>
+                <TableCell>{cutText(purifyTextFromHTML(text), 30)}</TableCell>
                 <TableCell>{formatDate(date)}</TableCell>
+                <TableCell>
+                  <Button
+                    label="🔍"
+                    details
+                    handleClick={() => handleShowIframe(title, text)}
+                    width="48px"
+                  />
+                </TableCell>
                 <TableCell>
                   <Button
                     label="x"
