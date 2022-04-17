@@ -1,14 +1,24 @@
 import { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addMail } from '../../pages/EmailTable/emailTableSlice'
+import { addMail, editMail } from '../../pages/EmailTable/emailTableSlice'
 import { nanoid } from '@reduxjs/toolkit'
 import { StyledForm, StyledInput, StyledLabel } from './styled'
 import Button from '../Button'
-import PropStyles from 'prop-types'
+import PropTypes from 'prop-types'
+import { deleteDangerousHTMLTags } from '../../helpers'
 
-const Form = ({ handleCloseModal }) => {
-  const [title, setTitle] = useState('')
-  const [message, setMessage] = useState('')
+const Form = ({
+  handleCloseModal,
+  previousTitle,
+  previousText,
+  previousId,
+  previousDate,
+  buttonText,
+  buttonStyle,
+  editEmail,
+}) => {
+  const [title, setTitle] = useState(previousTitle || '')
+  const [message, setMessage] = useState(previousText || '')
 
   const handleTitleChange = ({ target }) => setTitle(target.value)
   const handleMessageChange = ({ target }) => setMessage(target.value)
@@ -20,21 +30,32 @@ const Form = ({ handleCloseModal }) => {
 
   const handleMessageBlur = () => {
     const trimmedData = message.trim()
-    setMessage(trimmedData)
+    setMessage(deleteDangerousHTMLTags(trimmedData))
   }
 
   const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(
-      addMail({
-        title: title,
-        id: nanoid(),
-        text: message,
-        date: new Date().toISOString(),
-      })
-    )
+
+    editEmail
+      ? dispatch(
+          editMail({
+            title: title,
+            id: previousId,
+            text: message,
+            date: previousDate,
+          })
+        )
+      : dispatch(
+          addMail({
+            title: title,
+            id: nanoid(),
+            text: message,
+            date: new Date().toISOString(),
+          })
+        )
+
     handleCloseModal()
   }
 
@@ -69,7 +90,7 @@ const Form = ({ handleCloseModal }) => {
         />
       </StyledLabel>
       <div>
-        <Button label="dodaj" />
+        <Button label={buttonText} edit={buttonStyle} />
       </div>
     </StyledForm>
   )
@@ -78,5 +99,12 @@ const Form = ({ handleCloseModal }) => {
 export default Form
 
 Form.propsStyles = {
-  handleCloseModal: PropStyles.func.isRequired,
+  handleCloseModal: PropTypes.func.isRequired,
+  previousTitle: PropTypes.string,
+  previousText: PropTypes.string,
+  previousId: PropTypes.string,
+  previousDate: PropTypes.string,
+  buttonText: PropTypes.string,
+  buttonStyle: PropTypes.bool,
+  editEmail: PropTypes.bool,
 }
