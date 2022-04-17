@@ -1,7 +1,7 @@
 # Email-Table
 - coded by Wojciech Bylica
 - 04.2022
-![Preview](/public/readme-files/previev.png)
+![Preview](/public/readme-files/preview.png)
 
 ## Demo
 https://wojciechbylica.github.io/email-table/
