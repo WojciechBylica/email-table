@@ -1,6 +1,7 @@
 # Email-Table
 - coded by Wojciech Bylica
 - 04.2022
+![Preview](/public/readme-files/previev.png)
 
 ## Demo
 https://wojciechbylica.github.io/email-table/
@@ -11,8 +12,8 @@ I used:
 - react with hooks
 - react-redux
 - redux-saga
-- styled components
-- styled normalize
+- styled-components
+- styled-normalize
 - prop-types
 - dompurify
 
@@ -24,10 +25,16 @@ I used:
 - user can: add a new email, edit email, read email, delete email, sort emails by name and date
 - In main view App presents email-texts shortened to 30 signs without html tags
 - after pressing a dedicated button user can read  the full lenght email rendered with html tags
-![Preview](readme-files/handle-text-and-html.gif)
+![Preview](/public/readme-files/handle-text-and-html.gif)
 - App not allows to add, edit, or read js-scripts as a content of the emails.
-![Preview](readme-files/cant-add-script.gif)
+![Preview](/public/readme-files/cant-add-script.gif)
 
+### Instalation
+To install this repository please execute code:
+```bash
+git clone https://github.com/WojciechBylica/email-table.git
+npm install
+```
 
 # Getting Started with Create React App
 
