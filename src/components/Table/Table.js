@@ -16,10 +16,11 @@ import {
 } from './styled'
 import { formatDate, cutText, purifyTextFromHTML } from '../../helpers'
 import Modal from '../Modal'
-import { useIframe, useModal } from '../../hooks'
+import { useEditEmail, useIframe, useModal } from '../../hooks'
 import DeleteEmail from '../DeleteEmail'
 import { useState } from 'react'
 import Iframe from '../Iframe'
+import Form from '../Form'
 
 const Table = () => {
   const emails = useSelector(selectEmails)
@@ -45,6 +46,9 @@ const Table = () => {
   const [showIframe, iframeContent, handleShowIframe, handleHideIframe] =
     useIframe()
 
+  const [editEmail, previousContent, handleOpenDataEdit, handleHideDataEdit] =
+    useEditEmail()
+
   return (
     <>
       {openModal && (
@@ -55,6 +59,20 @@ const Table = () => {
       {showIframe && (
         <Modal handleCloseModal={handleHideIframe}>
           <Iframe title={iframeContent.title} text={iframeContent.text} />
+        </Modal>
+      )}
+      {editEmail && (
+        <Modal handleCloseModal={handleHideDataEdit}>
+          <Form
+            previousTitle={previousContent.title}
+            previousText={previousContent.text}
+            previousId={previousContent.id}
+            previousDate={previousContent.date}
+            buttonText="aktualizuj"
+            buttonStyle="edit"
+            handleCloseModal={handleHideDataEdit}
+            editEmail
+          />
         </Modal>
       )}
       <StyledTable>
@@ -79,6 +97,7 @@ const Table = () => {
             </TableCell>
             <TableCell as="th" noBreakWord scope="row"></TableCell>
             <TableCell as="th" noBreakWord scope="row"></TableCell>
+            <TableCell as="th" noBreakWord scope="row"></TableCell>
           </TableRow>
         </thead>
         <tbody>
@@ -93,6 +112,16 @@ const Table = () => {
                     label="🔍"
                     details
                     handleClick={() => handleShowIframe(title, text)}
+                    width="48px"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Button
+                    label="🖊"
+                    edit
+                    handleClick={() =>
+                      handleOpenDataEdit(title, text, id, date)
+                    }
                     width="48px"
                   />
                 </TableCell>
