@@ -29,7 +29,11 @@ export const TableCell = styled.td`
       word-break: inherit;
     `}
   &:first-child {
-    min-width: 90px;
+    min-width: 200px;
+  }
+
+  &:nth-child(2) {
+    min-width: 300px;
   }
 `
 export const SortButton = styled.button`
