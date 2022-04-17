@@ -26,7 +26,7 @@ const Form = ({ handleCloseModal }) => {
   const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
-    // event.preventDefault()
+    event.preventDefault()
     dispatch(
       addMail({
         title: title,
