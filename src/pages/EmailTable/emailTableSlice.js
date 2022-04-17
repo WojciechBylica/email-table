@@ -12,6 +12,10 @@ const emailTableSlice = createSlice({
     addMail: ({ emails }, { payload: email }) => {
       emails.push(email)
     },
+    editMail: ({ emails }, { payload: email }) => {
+      const index = emails.findIndex(({ id }) => id === email.id)
+      emails[index] = email
+    },
     removeMail: ({ emails }, { payload: emailId }) => {
       const index = emails.findIndex(({ id }) => id === emailId)
       emails.splice(index, 1)
@@ -32,6 +36,7 @@ const emailTableSlice = createSlice({
 
 export const {
   addMail,
+  editMail,
   removeMail,
   sortByTitles,
   sortByDates,
