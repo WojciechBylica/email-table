@@ -33,6 +33,12 @@ export const StyledButton = styled.button`
       background-color: ${({ theme }) => theme.color.grey};
     `}
 
+    ${({ edit }) =>
+    edit &&
+    css`
+      background-color: ${({ theme }) => theme.color.cornflowerBlue};
+    `}
+
   ${({ width }) =>
     width &&
     css`

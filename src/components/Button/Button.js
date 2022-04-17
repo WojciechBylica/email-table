@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types'
 import { StyledButton } from './styled'
 
-const Button = ({ label, remove, details, handleClick, width }) => (
+const Button = ({ label, remove, details, edit, handleClick, width }) => (
   <StyledButton
     remove={remove}
     details={details}
+    edit={edit}
     width={width}
     onClick={handleClick}
   >
