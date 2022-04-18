@@ -14,7 +14,6 @@ const Form = ({
   previousId,
   previousDate,
   buttonText,
-  buttonStyle,
   editEmail,
 }) => {
   const [title, setTitle] = useState(previousTitle || '')
@@ -62,7 +61,7 @@ const Form = ({
   return (
     <StyledForm onSubmit={handleSubmit}>
       <StyledLabel>
-        Tytuł (3-25 znaków)
+        Tytuł
         <StyledInput
           name="title"
           value={title}
@@ -71,7 +70,7 @@ const Form = ({
           type="text"
           pattern=".{3,250}"
           required
-          placeholder="tytuł"
+          placeholder="tekst, 3-25 znaków"
           autoFocus
         />
       </StyledLabel>
@@ -86,7 +85,7 @@ const Form = ({
           onBlur={handleMessageBlur}
           type="textArea"
           required
-          placeholder="treść wiadomości"
+          placeholder="tekst, html bez skryptów i styli"
         />
       </StyledLabel>
       <div>
