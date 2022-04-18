@@ -112,7 +112,7 @@ const Table = () => {
                     label="🔍"
                     details
                     handleClick={() => handleShowIframe(title, text)}
-                    width="48px"
+                    width={48}
                   />
                 </TableCell>
                 <TableCell>
@@ -122,7 +122,7 @@ const Table = () => {
                     handleClick={() =>
                       handleOpenDataEdit(title, text, id, date)
                     }
-                    width="48px"
+                    width={48}
                   />
                 </TableCell>
                 <TableCell>
@@ -130,7 +130,7 @@ const Table = () => {
                     label="x"
                     remove
                     handleClick={() => handleRemoveEmail(id)}
-                    width="48px"
+                    width={48}
                   />
                 </TableCell>
               </TableRow>

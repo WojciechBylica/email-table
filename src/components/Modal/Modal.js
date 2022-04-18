@@ -7,12 +7,7 @@ const Modal = ({ children, handleCloseModal }) => {
     <ModalWrapper>
       <Wrapper>
         <ButtonWrapper>
-          <Button
-            label="x"
-            remove
-            width="48px"
-            handleClick={handleCloseModal}
-          />
+          <Button label="x" remove width={48} handleClick={handleCloseModal} />
         </ButtonWrapper>
         {children}
       </Wrapper>

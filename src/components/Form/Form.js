@@ -90,7 +90,7 @@ const Form = ({
         />
       </StyledLabel>
       <div>
-        <Button label={buttonText} edit={buttonStyle} />
+        <Button label={buttonText} edit />
       </div>
     </StyledForm>
   )

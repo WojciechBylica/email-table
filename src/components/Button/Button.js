@@ -19,10 +19,11 @@ Button.defaultProps = {
   label: 'Dodaj',
 }
 
-Button.propStyles = {
+Button.propTypes = {
   label: PropTypes.string,
   remove: PropTypes.bool,
   details: PropTypes.bool,
+  edit: PropTypes.bool,
   handleClick: PropTypes.func,
-  width: PropTypes.bool,
+  width: PropTypes.number,
 }

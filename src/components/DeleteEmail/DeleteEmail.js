@@ -15,7 +15,7 @@ const DeleteEmail = ({ id, handleCloseModal }) => {
           dispatch(removeMail(id))
           handleCloseModal()
         }}
-        width="160px"
+        width={160}
       />
     </StyledDeleteBox>
   )
