@@ -89,7 +89,7 @@ const Form = ({
         />
       </StyledLabel>
       <div>
-        <Button label={buttonText} edit />
+        <Button label={editEmail && buttonText} edit={editEmail && true} />
       </div>
     </StyledForm>
   )
