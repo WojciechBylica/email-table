@@ -5,8 +5,11 @@ import PropTypes from 'prop-types'
 const Iframe = ({ title, text }) => {
   return (
     <>
-      <div>{title}</div>
-      <StyledIframe srcDoc={deleteDangerousHTMLTags(text)} />
+      <h2>{title}</h2>
+      <StyledIframe
+        data-testid="iframe"
+        srcDoc={deleteDangerousHTMLTags(text)}
+      />
     </>
   )
 }
