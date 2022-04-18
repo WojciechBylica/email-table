@@ -17,6 +17,7 @@ I used:
 - prop-types
 - dompurify
 
+The App contains unit tests (react-testing-library).
 
 ## description.
 
