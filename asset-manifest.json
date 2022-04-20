@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.js": "/email-table/static/js/main.ceaf1f86.js",
+    "main.js": "/email-table/static/js/main.afde29a2.js",
     "static/js/787.e76fbfda.chunk.js": "/email-table/static/js/787.e76fbfda.chunk.js",
     "index.html": "/email-table/index.html",
-    "main.ceaf1f86.js.map": "/email-table/static/js/main.ceaf1f86.js.map",
+    "main.afde29a2.js.map": "/email-table/static/js/main.afde29a2.js.map",
     "787.e76fbfda.chunk.js.map": "/email-table/static/js/787.e76fbfda.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.ceaf1f86.js"
+    "static/js/main.afde29a2.js"
   ]
 }
