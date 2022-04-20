@@ -1,11 +1,12 @@
 import React from 'react'
-import { screen, render, fireEvent } from '@testing-library/react'
+import { screen, render, fireEvent, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import Form from './Form'
 import { ThemeProvider } from 'styled-components'
 import { theme } from '../../theme'
 import { Provider } from 'react-redux'
 import store from '../../store'
+import * as ReactRedux from 'react-redux'
 
 describe('Form', () => {
   const handleCloseModal = jest.fn()
@@ -25,5 +26,67 @@ describe('Form', () => {
       screen.getByRole('textbox', { name: /wiadomość/i })
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: /Dodaj/i })).toBeInTheDocument()
+  })
+
+  it('should call onSubmit EditMail reducer once, with new values of inputs and have proper bg color of a button', async () => {
+    const mockSave = jest.fn()
+    let editMail = jest.fn(() => null)
+
+    jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => {
+      return editMail
+    })
+
+    render(
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Form
+            previousTitle="aaa"
+            previousText="bbb"
+            previousId="1234id"
+            previousDate="2022-04-20T01:09:53.920Z"
+            buttonText="aktualizuj"
+            buttonStyle="edit"
+            handleCloseModal={handleCloseModal}
+            editEmail
+          />
+        </ThemeProvider>
+      </Provider>
+    )
+    expect(
+      screen.getByRole('button', { name: /aktualizuj/i })
+    ).toBeInTheDocument()
+
+    expect(screen.getByRole('button', { name: /aktualizuj/i })).toHaveStyle(
+      'background-color: #666bf6b5'
+    )
+
+    fireEvent.input(screen.getByRole('textbox', { name: /tytuł/i }), {
+      target: {
+        value: 'tytuł testowy',
+      },
+    })
+
+    fireEvent.input(screen.getByRole('textbox', { name: /wiadomość/i }), {
+      target: {
+        value: 'treść wiadomości testowej',
+      },
+    })
+
+    fireEvent.submit(screen.getByRole('button', { name: /aktualizuj/i }))
+    expect(mockSave).not.toBeCalled()
+
+    expect(editMail).toHaveBeenCalledTimes(1)
+
+    await waitFor(() =>
+      expect(editMail).toHaveBeenLastCalledWith({
+        payload: {
+          date: '2022-04-20T01:09:53.920Z',
+          id: '1234id',
+          text: 'treść wiadomości testowej',
+          title: 'tytuł testowy',
+        },
+        type: 'emails/editMail',
+      })
+    )
   })
 })
