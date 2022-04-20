@@ -76,7 +76,7 @@ const Table = () => {
         </Modal>
       )}
       <StyledTable>
-        <thead>
+        <thead aria-label="table-header">
           <TableRow>
             <TableCell as="th" noBreakWord scope="row">
               <SortButton onClick={() => dispatch(sortByTitles())}>
@@ -100,7 +100,7 @@ const Table = () => {
             <TableCell as="th" noBreakWord scope="row"></TableCell>
           </TableRow>
         </thead>
-        <tbody>
+        <tbody aria-label="table-body">
           {!!emails &&
             emails.map(({ id, title, text, date }) => (
               <TableRow key={id}>
