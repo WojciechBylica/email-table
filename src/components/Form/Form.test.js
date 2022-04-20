@@ -77,7 +77,7 @@ describe('Form', () => {
 
     expect(editMail).toHaveBeenCalledTimes(1)
 
-    await waitFor(() =>
+    await waitFor(() => {
       expect(editMail).toHaveBeenLastCalledWith({
         payload: {
           date: '2022-04-20T01:09:53.920Z',
@@ -87,6 +87,7 @@ describe('Form', () => {
         },
         type: 'emails/editMail',
       })
-    )
+      expect(handleCloseModal).toHaveBeenCalledTimes(1)
+    })
   })
 })
