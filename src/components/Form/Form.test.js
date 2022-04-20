@@ -90,4 +90,39 @@ describe('Form', () => {
       expect(handleCloseModal).toHaveBeenCalledTimes(1)
     })
   })
+
+  it("should call onSubmit AddMail reducer once, don't call EditMail and have proper bg color of a button", async () => {
+    const mockSave = jest.fn()
+    let addMail = jest.fn(() => null)
+    let editMail = jest.fn(() => null)
+
+    jest.spyOn(ReactRedux, 'useDispatch').mockImplementation(() => {
+      return addMail
+    })
+
+    render(
+      <Provider store={store}>
+        <ThemeProvider theme={theme}>
+          <Form handleCloseModal={handleCloseModal} />
+        </ThemeProvider>
+      </Provider>
+    )
+    expect(
+      screen.getByRole('button', { name: /Dodaj wiadomość/i })
+    ).toBeInTheDocument()
+
+    expect(
+      screen.getByRole('button', { name: /Dodaj wiadomość/i })
+    ).toHaveStyle('background-color: #0a960a')
+
+    fireEvent.submit(screen.getByRole('button', { name: /Dodaj wiadomość/i }))
+    expect(mockSave).not.toBeCalled()
+
+    expect(addMail).toHaveBeenCalledTimes(1)
+    expect(editMail).toHaveBeenCalledTimes(0)
+
+    await waitFor(() => {
+      expect(handleCloseModal).toHaveBeenCalledTimes(1)
+    })
+  })
 })
