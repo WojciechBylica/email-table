@@ -58,3 +58,12 @@ export const StyledButtonSpan = styled.span`
   flex-direction: column;
   align-items: center;
 `
+export const StyledSpan = styled.span`
+  font-size: 10px;
+
+  ${({ marginBottom }) =>
+    marginBottom &&
+    css`
+      margin-bottom: 10px;
+    `}
+`

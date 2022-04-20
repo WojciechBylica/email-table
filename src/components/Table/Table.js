@@ -10,6 +10,7 @@ import {
 import {
   SortButton,
   StyledButtonSpan,
+  StyledSpan,
   StyledTable,
   TableCell,
   TableRow,
@@ -80,7 +81,7 @@ const Table = () => {
           <TableRow>
             <TableCell as="th" noBreakWord scope="row">
               <SortButton onClick={() => dispatch(sortByTitles())}>
-                Tytuł▲
+                Tytuł<StyledSpan marginBottom>▲</StyledSpan>
               </SortButton>
             </TableCell>
             <TableCell as="th" noBreakWord scope="row">
@@ -90,8 +91,8 @@ const Table = () => {
               <SortButton onClick={handleSortByDates}>
                 Data dodania
                 <StyledButtonSpan>
-                  <span>▲</span>
-                  <span>▼</span>
+                  <StyledSpan>▲</StyledSpan>
+                  <StyledSpan>▼</StyledSpan>
                 </StyledButtonSpan>
               </SortButton>
             </TableCell>

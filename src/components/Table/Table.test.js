@@ -22,7 +22,7 @@ test('empty Table renders ok', () => {
   expect(
     screen.getByRole('rowgroup', { name: 'table-body' })
   ).toBeInTheDocument()
-  expect(screen.getByRole('button', { name: 'Tytuł▲' })).toBeInTheDocument()
+  expect(screen.getByRole('button', { name: 'Tytuł ▲' })).toBeInTheDocument()
   expect(
     screen.getByRole('button', { name: 'Data dodania ▲ ▼' })
   ).toBeInTheDocument()
