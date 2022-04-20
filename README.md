@@ -1,7 +1,7 @@
 # Email-Table
 - coded by Wojciech Bylica
 - 04.2022
-![Preview](/public/readme-files/preview.png)
+![Preview](/public/readme-files/email-table-preview.png)
 
 ## Demo
 https://wojciechbylica.github.io/email-table/
@@ -18,6 +18,9 @@ I used:
 - dompurify
 
 The App contains unit tests (react-testing-library).
+
+The App has pretty good desktop performance:
+![Preview](/public/readme-files/desktop-performance.png)
 
 ## description.
 
