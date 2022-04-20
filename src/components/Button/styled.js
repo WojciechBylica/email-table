@@ -9,7 +9,7 @@ export const StyledButton = styled.button`
   align-items: center;
   justify-content: center;
   color: ${({ theme }) => theme.color.white};
-  background-color: ${({ theme }) => theme.color.green};
+  background-color: ${({ theme }) => theme.color.japaneseLaurel};
   height: 48px;
   width: 96px;
   cursor: pointer;

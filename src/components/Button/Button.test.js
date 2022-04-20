@@ -39,7 +39,7 @@ describe('Button', () => {
       </ThemeProvider>
     )
     expect(screen.getByRole('button')).toHaveStyle('width:96px')
-    expect(screen.getByRole('button')).toHaveStyle('background-color:#0a960a')
+    expect(screen.getByRole('button')).toHaveStyle('background-color: #288307')
   })
 
   test('should have color red if props remove is true', () => {
@@ -57,9 +57,7 @@ describe('Button', () => {
         <Button edit />
       </ThemeProvider>
     )
-    expect(screen.getByRole('button')).toHaveStyle(
-      'background-color: #666bf6b5'
-    )
+    expect(screen.getByRole('button')).toHaveStyle('background-color: #565CF7')
   })
 
   test('should have bg color grey if props details is true', () => {

@@ -57,7 +57,7 @@ describe('Form', () => {
     ).toBeInTheDocument()
 
     expect(screen.getByRole('button', { name: /aktualizuj/i })).toHaveStyle(
-      'background-color: #666bf6b5'
+      'background-color: #565CF7'
     )
 
     fireEvent.input(screen.getByRole('textbox', { name: /tytuł/i }), {
@@ -113,7 +113,7 @@ describe('Form', () => {
 
     expect(
       screen.getByRole('button', { name: /Dodaj wiadomość/i })
-    ).toHaveStyle('background-color: #0a960a')
+    ).toHaveStyle('background-color: #288307')
 
     fireEvent.submit(screen.getByRole('button', { name: /Dodaj wiadomość/i }))
     expect(mockSave).not.toBeCalled()
