@@ -1,11 +1,11 @@
 import { deleteDangerousHTMLTags } from '../../helpers'
-import { StyledIframe } from './styled'
+import { StyledH2, StyledIframe } from './styled'
 import PropTypes from 'prop-types'
 
 const Iframe = ({ title, text }) => {
   return (
     <>
-      <h2>{title}</h2>
+      <StyledH2>{title}</StyledH2>
       <StyledIframe
         data-testid="iframe"
         srcDoc={deleteDangerousHTMLTags(text)}
