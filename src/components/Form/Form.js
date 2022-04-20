@@ -90,7 +90,10 @@ const Form = ({
         />
       </StyledLabel>
       <div>
-        <Button label={editEmail && buttonText} edit={editEmail && true} />
+        <Button
+          label={editEmail ? buttonText : 'Dodaj wiadomość'}
+          edit={editEmail && true}
+        />
       </div>
     </StyledForm>
   )
