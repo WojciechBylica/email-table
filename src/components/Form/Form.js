@@ -60,6 +60,7 @@ const Form = ({
 
   return (
     <StyledForm onSubmit={handleSubmit}>
+      <h1>{editEmail ? 'Edytuj wiadomość' : 'Dodaj wiadomość'}</h1>
       <StyledLabel>
         Tytuł
         <StyledInput
