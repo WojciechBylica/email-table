@@ -19,7 +19,9 @@ I used:
 
 The App contains unit tests (react-testing-library).
 
+
 The App has pretty good desktop performance:
+
 ![Preview](/public/readme-files/desktop-performance.png)
 
 ## description.
@@ -30,7 +32,8 @@ The App has pretty good desktop performance:
 - In main view App presents email-texts shortened to 30 signs without html tags
 - after pressing a dedicated button user can read  the full lenght email rendered with html tags
 ![Preview](/public/readme-files/handle-text-and-html.gif)
-- App not allows to add, edit, or read js-scripts as a content of the emails.
+- App not allows to add, edit, or read js-scripts as a content of the emails 
+
 ![Preview](/public/readme-files/cant-add-script.gif)
 
 ### Instalation
